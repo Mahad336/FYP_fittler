@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "21719243757",
+    "project_id": "fittler-4166f",
+    "storage_bucket": "fittler-4166f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21719243757:android:c31eef5b7e6cb6659ba5e4",
+        "android_client_info": {
+          "package_name": "com.khushalkissan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "21719243757-26gafq82ivp50u1akavdtvi5e3slkinn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWiR1-0pFgjtBl1_bDndUpRekt25v4neE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "21719243757-26gafq82ivp50u1akavdtvi5e3slkinn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
