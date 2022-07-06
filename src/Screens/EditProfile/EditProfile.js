@@ -27,6 +27,8 @@ const EditProfile = ({ route }) => {
   const [text, setText] = useState('Edit Profile');
   const [Gender, setGender] = React.useState(userData.gender);
   const [name, setName] = useState(userData.name);
+  const [role, setRole] = useState(userData.role);
+  const [email, setEmail] = useState(userData.email);
   const [feet, setFeet] = useState(userData.feet);
   const [inches, setInches] = useState(userData.inches);
   const [currentWeight, setCurrentWeight] = useState(userData.currentWeight);
@@ -108,6 +110,8 @@ const EditProfile = ({ route }) => {
       });
     } else if (
       name == '' ||
+      email == '' ||
+      role == '' ||
       feet == '' ||
       inches == '' ||
       currentWeight == '' ||
@@ -125,6 +129,8 @@ const EditProfile = ({ route }) => {
         profileUpdateRequest({
           postData: {
             name: name,
+            email: email,
+            role: role,
             gender: Gender,
             age: age,
             feet: feet,
@@ -183,7 +189,16 @@ const EditProfile = ({ route }) => {
               style={styles.input}
             />
           </View>
-
+          <View style={{ marginTop: 10 }}>
+            <Text style={{ fontWeight: 'bold' }}>Email: </Text>
+            <TextInput
+              placeholder="Email: "
+              onChangeText={setEmail}
+              value={email}
+              keyboardType="default"
+              style={styles.input}
+            />
+          </View>
           <View style={{ width: '95%', alignSelf: 'center', marginTop: 10 }}>
             <Text
               style={{
@@ -276,11 +291,9 @@ const EditProfile = ({ route }) => {
           </View>
 
           <View style={{ marginTop: 10 }}>
-            <Text style={{ fontWeight: 'bold' }}>
-              Enter Your Weight in KG's:{' '}
-            </Text>
+            <Text style={{ fontWeight: 'bold' }}>Enter Your Weight: </Text>
             <TextInput
-              placeholder="Enter Feets: "
+              placeholder="Enter Current Weight                                         KG: "
               onChangeText={setCurrentWeight}
               value={currentWeight}
               keyboardType="numeric"
@@ -289,11 +302,9 @@ const EditProfile = ({ route }) => {
           </View>
 
           <View style={{ marginVertical: 10 }}>
-            <Text style={{ fontWeight: 'bold' }}>
-              Enter Your Goal Weight in KG's:{' '}
-            </Text>
+            <Text style={{ fontWeight: 'bold' }}>Enter Your Goal Weight: </Text>
             <TextInput
-              placeholder="Enter Feets: "
+              placeholder="Enter Goal Weight                                              88KG: "
               onChangeText={setGoalWeight}
               value={goalWeight}
               keyboardType="numeric"
