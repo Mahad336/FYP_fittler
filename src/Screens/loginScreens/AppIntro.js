@@ -20,7 +20,9 @@ const Intro = ({ navigation }) => {
   const renderNextButton = () => {
     return (
       <>
-        <TouchableOpacity style={styles.renderNextButton}>
+        <TouchableOpacity
+          style={styles.renderNextButton}
+          onPress={() => navigation.navigate('SignIn')}>
           <Text style={styles.rendertext}>Continue</Text>
         </TouchableOpacity>
         <View style={styles.bottomview}>
@@ -35,8 +37,12 @@ const Intro = ({ navigation }) => {
     );
   };
   const onSkip = () => {
-    setShow(true);
+    navigation.navigate('SignIn');
   };
+
+  /*{
+    setShow(true);
+  };*/
 
   const renderDoneButton = () => {
     return (

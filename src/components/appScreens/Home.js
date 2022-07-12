@@ -85,7 +85,7 @@ export default function Main({ navigation }) {
           {TabBtns(
             currentTab,
             setCurrentTab,
-            'Diets',
+            'Diet Recpies',
             diets,
             navigation,
             Drawer,

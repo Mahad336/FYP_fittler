@@ -25,6 +25,8 @@ const Water = ({ navigation }) => {
   const [serving, setServing] = useState('');
   const [calories, setCalories] = useState('');
   const [unit, setUnit] = useState('');
+  const [search, setSearch] = useState('');
+  const [searchedCalories, setSearchedCalories] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -49,6 +51,7 @@ const Water = ({ navigation }) => {
       console.log('response', tempArray);
 
       setCalo(tempArray);
+      setSearchedCalories(tempArray);
       const cal = res?._data?.cal;
       // setCalo(res?._data?.cal);
       dispatch(updatedCalories(cal));
@@ -88,6 +91,16 @@ const Water = ({ navigation }) => {
     setFlag(false);
     getCaloriesData();
   }, []);
+
+  useEffect(() => {
+    const newSearchedCalories = calo.filter(calorie => {
+      if (calorie.Food.toLowerCase().search(search.toLowerCase()) !== -1) {
+        return calorie;
+      }
+    });
+
+    setSearchedCalories(newSearchedCalories);
+  }, [search]);
 
   const check = async data => {
     console.log('eeeee', data);
@@ -249,9 +262,21 @@ const Water = ({ navigation }) => {
             <Text style={styles.textStyle}>Add Item</Text>
           </TouchableOpacity>
         </View>
+
+        <View>
+          <TextInput
+            placeholder="Search for Calories"
+            lable="Search"
+            onChangeText={setSearch}
+            value={search}
+            iconName="email"
+            style={styles.input}
+          />
+        </View>
+
         <View style={{ backgroundColor: '#F5FCFF', flex: 1, paddingTop: 10 }}>
           {/* <FlatList data={CaloriesData} renderItem={renderItem} /> */}
-          <FlatList data={calo} renderItem={renderItem} />
+          <FlatList data={searchedCalories} renderItem={renderItem} />
         </View>
       </View>
     );

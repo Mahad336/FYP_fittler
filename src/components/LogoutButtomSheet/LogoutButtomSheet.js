@@ -61,13 +61,13 @@ const LogoutButtomSheet = ({ onPress, cancel }) => {
           <View>
             <Button
               text={'Logout'}
-              color={'#4AB5E3'}
+              color={'#FFF'}
               fontSize={15}
               height={50}
               width={160}
               borderWidth={1}
               marginTop={10}
-              backgroundColor={'#fff'}
+              backgroundColor={'#4AB5E3'}
               marginBottom={10}
               onPress={() =>
                 auth()

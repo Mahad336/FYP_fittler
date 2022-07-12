@@ -70,7 +70,6 @@ const Activity = props => {
           resizeMode: 'contain',
         }}
       />
-
       <View
         style={{
           flexDirection: 'column',
